@@ -13,6 +13,12 @@ module.exports = merge(commonConfig, {
         'main': resolve('./src/main')
     },
 
+    output: {
+        libraryTarget: 'commonjs2'
+    },
+    
+    devtool: false, /* 'source-map' */
+
     optimization: {
         minimizer: [
             new optimizeCssAssetsWebpackPlugin(),

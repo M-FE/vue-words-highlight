@@ -1,5 +1,4 @@
-import directive from './directive';
 import Component from './Component';
+export { default as highlight } from './directive';
 
-export const directive = directive;
 export default Component;

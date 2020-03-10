@@ -1,7 +1,7 @@
 {
   "name": "vue-words-highlight",
   "version": "1.0.0",
-  "description": "Highlight words",
+  "description": "Highlight words for Vue.js",
   "main": "dist/main.js",
   "directories": {
     "example": "example"
@@ -19,7 +19,12 @@
     "keyword",
     "keywords"
   ],
-  "author": "",
+  "author": "Willem Wei <willemwei023@gmail.com>",
+  "homepage": "https://github.com/M-FE/vue-words-highlight",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-FE/vue-words-highlight.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.4",

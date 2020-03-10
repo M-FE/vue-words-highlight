@@ -21,6 +21,8 @@ module.exports = merge(commonConfig, {
         hot: true
     },
 
+    devtool: '#cheap-module-source-map',
+
     plugins: [
         new htmlWebpackPlugin({
             template: resolve('./example/index.html'),
