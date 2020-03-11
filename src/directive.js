@@ -1,6 +1,8 @@
 import {
     escapeReg,
-    isObject
+    isObject,
+    initStyle,
+    initClassname
 } from './util';
 
 /**
@@ -52,8 +54,8 @@ const resetHtml = (el) => {
  *     keyword: [string, number, array], 用于筛选的关键词
  *     separator: string, 分隔符，仅当传入的keyword是字符串时有效
  *     caseSensitive: bool, 是否大小写敏感
- *     className: string, 用于高亮的类名
- *     style: string, 用于高亮的样式
+ *     className: [object, array<string|object>, object], 用于高亮的类名
+ *     style: [object, string], 用于高亮的样式
  * }
  * @param {*} el 
  * @param {*} binding 
@@ -88,8 +90,11 @@ const handle = (el, binding, vnode, options) => {
     const reg = new RegExp(pattern, !caseSensitive ? 'ig' : 'g');
     const originEle = el.childNodes[0]; /* 存储原始数据的节点 */
 
+    const hlStyle = initStyle(style);
+    const hlClassname = initClassname(className);
+
     el.innerHTML = originEle.outerHTML + originEle.innerText.replace(reg, (i) => {
-        return `<strong class="${className}" style="${style}">${i}</strong>`;
+        return `<strong class="${hlClassname}" style="${hlStyle}">${i}</strong>`;
     });
 }
 

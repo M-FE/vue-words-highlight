@@ -2,23 +2,12 @@
 import Hello from './Hello';
 // import MHightlight from '../src/main';
 
-const TEXT = `Twitter is an American microblogging and social networking
-    service on which users post and interact with messages known
-    as "tweets". Registered users can post, like, and retweet
-    tweets, but unregistered users can only read them. Users
-    access Twitter through its website interface, through Short 
-    Message Service (SMS) or its mobile-device application
-    software ("app"). Twitter, Inc. is based in San Francisco,
-    California, and has more than 25 offices around the world.
-    Tweets were originally restricted to 140 characters, but was
-    doubled to 280 for non-Asian languages in November 2017.
-`;
+const TEXT = `Vue.js features an incrementally adoptable architecture that focuses on declarative rendering and component composition. Advanced features required for complex applications such as routing, state management and build tooling are offered via officially maintained supporting libraries and packages`;
 
 export default {
     data() {
         return {
-            keyword: "an user",
-            caseSensitive: false
+            keyword: "an incrementally"
         };
     },
 
@@ -33,38 +22,37 @@ export default {
                 <div>
                     <label>Keywords: </label>
                     <input
+                        style="width: 500px"
                         value={this.keyword}
                         onInput={e => {
                             this.keyword = e.target.value;
                         }}
                     />
                 </div>
-                <div>
-                    <label>Case Sensitive: </label>
-                    <input checked={this.caseSensitive} type="checkbox" onChange={
-                        e => {
-                            this.caseSensitive = e.target.checked;
-                        }
-                    } />
-                </div>
+
                 <h2>Basic Usage</h2>
+                <h3>默认（修改了颜色值）</h3>
+                <p v-highlight={{ keyword: this.keyword }}>{ TEXT }</p>
+                <h3>separator传入空，此时是全值匹配（修改了颜色值）</h3>
                 <p v-highlight={{ 
-                    keyword: this.keyword, 
-                    style: 'color: #00f', 
-                    caseSensitive: this.caseSensitive,
+                    keyword: this.keyword,
                     separator: ''
                 }}>{ TEXT }</p>
-                <h2>For components</h2>
-                <h3>Directive</h3>
+
+                <h2>More</h2>
+                <h3>大小写敏感</h3>
                 <Hello v-highlight={{ 
                     keyword: this.keyword, 
-                    caseSensitive: this.caseSensitive 
+                    caseSensitive: true
                 }}>{ TEXT }</Hello>
-                <h3>Component</h3>
+                <h3>自定义高亮的类名和样式</h3>
                 <m-hight-light highlight={{
                     keyword: this.keyword,
                     className: 'aaa',
-                    style: 'color: red',
+                    style: {
+                        color: '#f00',
+                        border: '1px solid #ccc'
+                    },
                     caseSensitive: this.caseSensitive
                 }} title="Test">{ TEXT }</m-hight-light>
             </div>
@@ -72,3 +60,9 @@ export default {
     }
 };
 </script>
+
+<style>
+p {
+    color: #666;
+}
+</style>

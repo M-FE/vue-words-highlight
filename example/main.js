@@ -5,7 +5,7 @@ import { highlight } from '../src/main';
 import MHightlight from '../src/main';
 Vue.use(highlight, {
   className: 'red',
-  style: 'color: #0f0'
+  style: 'color: #00f'
 });
 
 // Vue.directive('highlight', highlight);

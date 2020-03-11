@@ -1,5 +1,9 @@
 ## Vue Words Highlight
-用于高亮关键词的vue组件，可以用于类似于搜索的功能。
+[![NPM version](https://img.shields.io/npm/v/vue-words-highlight.svg?style=flat)](https://npmjs.com/package/vue-words-highlight)
+[![NPM downloads](https://img.shields.io/npm/dm/vue-words-highlight.svg?style=flat)](https://npmjs.com/package/vue-words-highlight)
+> 用于高亮关键词的vue组件，可以用于类似于搜索的功能。
+
+![](./images/example.gif)
 
 ## Installation
 ```javascript
@@ -46,20 +50,20 @@
 
 - **`keyword: `** `Array<String>|String|Number`
 
-用于高亮的关键词。当传入的是字符串或数字时，将格式化成字符串，并将使用**`separator`**分隔成数组。
+用于高亮的关键词。当传入的是字符串或数字时，将格式化成字符串，并将使用 **`separator`**分隔成数组。
 
 - **`separator`** `String`
 
-当且仅当**`keyword`**为字符串时有效。默认值：` `。
+当且仅当 **`keyword`**为字符串时有效；传入为空时，默认全值匹配。默认值：` `。
 
 - **`caseSensitive`** `Boolean`
 
 大小写是否敏感。默认值：`false`
 
-- **`className`** `String`
+- **`className`** `String|Array<String|Object>|Object`
 
 高亮的类名。
 
-- **`style`** `String`
+- **`style`** `String|Object`
 
 高亮的样式。
