@@ -1,6 +1,6 @@
 {
   "name": "vue-words-highlight",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Highlight words for Vue.js",
   "main": "dist/main.js",
   "directories": {
