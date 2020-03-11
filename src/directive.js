@@ -1,10 +1,7 @@
-/**
- * 是否是Object
- * @param {*} value 
- */
-const isObject = (value) => {
-    return Object.prototype.toString.call(value).includes('Object');
-}
+import {
+    escapeReg,
+    isObject
+} from './util';
 
 /**
  * 格式化关键词
@@ -22,11 +19,15 @@ const initKeyword = (keyword, separator = ' ') => {
         return [];
     }
 
+    let ret = [];
+
     if (!separator) {
-        return [keyword].filter(Boolean);
+        ret = [keyword];
+    } else {
+        ret = (keyword + '').split(separator);
     }
 
-    return (keyword + '').split(separator).filter(Boolean);
+    return ret.filter(Boolean).sort((a, b) => b.length - a.length);
 }
 
 /**
@@ -83,7 +84,7 @@ const handle = (el, binding, vnode, options) => {
         return;
     }
 
-    const pattern = queries.map(k => `(${k})`).join('|');
+    const pattern = queries.map(k => `(${escapeReg(k)})`).join('|');
     const reg = new RegExp(pattern, !caseSensitive ? 'ig' : 'g');
     const originEle = el.childNodes[0]; /* 存储原始数据的节点 */
 
