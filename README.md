@@ -3,7 +3,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/vue-words-highlight.svg?style=flat)](https://npmjs.com/package/vue-words-highlight)
 > 用于高亮关键词的vue组件，可以用于类似于搜索的功能。
 
-![](./images/example.gif)
+![](http://assets-cdn.99plas.com/packages/highlight-example.gif)
 
 ## Installation
 ```javascript
